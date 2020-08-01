@@ -1,0 +1,24 @@
+<form  bindreset="formReset" bindsubmit="formSubmit" rules="rules">
+    <label for="pnum">
+        商品数量：<input type="number" confirm-type="next" prop="pnum" placeholder="请输入商品数量" name="pnum" id="pnum" />
+    </label>
+    <label for="price">
+       <text class="req">*</text>商品价格：<input type="digit" prop="price" placeholder="请输入商品价格" name="price" id="price" />
+    </label>
+    <view class="gdesc">
+        <text class="req">*</text>商品描述：
+        <textarea name="pdesc" prop="pdesc" placeholder="请简单描述商品" id="pdesc"></textarea>
+    </view>
+    <label for="paddr" class="paddr">
+        地址：<input value="{{userAddr}}" type="text" placeholder="请输入地址" name="paddr" id="paddr" />
+        <image src="../../icons/location.png" bindtap="toGetLocation"></image>
+    </label>
+    <label for="phone">
+        手机：<input type="number"  prop="phone" placeholder="请输入手机号" name="phone" id="phone" />
+    </label>
+    <view class="btn">
+        <button form-type="reset" size="mini">重置</button> 
+        <button form-type="submit" type="primary" size="mini" bindsubmit="formSubmit">上传图片</button>
+    </view>
+</form>
+ 

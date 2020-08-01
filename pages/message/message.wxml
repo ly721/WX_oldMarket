@@ -1,0 +1,32 @@
+<view class="navbar">
+    <view class="navbar-item" wx:for="{{navbar}}"  wx:key="index" data-index="{{index}}" bindtap="switchNav">
+      <text class="navbar-text {{currentIndex==index ? 'active' : ''}}">{{item}}</text>
+    </view>
+  </view>
+<view class="chat" wx:if="{{currentIndex===0}}">
+  <view class="chat_box" wx:if="{{!users}}">
+    暂无消息
+    <image src="../../icons/chat.png"></image>   
+  </view>
+  <view class="chatBox" wx:if="{{users}}">
+    <navigator class="chat_box2" hover-class="msgHover" wx:for="{{users}}" wx:key="index" 
+    url="../comments/comments?roomId={{item.room.roomId}}&fromUrl=2">
+      <image src="{{item.user.uimag ? item.user.uimag : '../../icons/avatar.jpg' }}"></image>
+      <view class="left">
+        <view class="top">
+          <text class="nickName">{{item.user.uname}}</text>
+          <text class="time">{{item.message.createTime}}</text>
+        </view>
+        <text class="lastMessage" wx:if="{{item.message.isFile === 3}}">[图片]</text>
+        <text class="lastMessage" wx:if="{{item.message.isFile === 2}}">{{item.message.content}}</text>
+        <text class="lastMessage" wx:if="{{item.message.isFile === 1}}">[商品]</text>
+      </view>
+    </navigator>
+  </view>
+</view>
+<view class="notice" wx:if="{{currentIndex===1}}">
+  <view class="notice_box">
+    暂无通知
+    <image src="../../icons/notice.png"></image>
+  </view>
+</view>

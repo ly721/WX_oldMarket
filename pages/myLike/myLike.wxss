@@ -1,0 +1,45 @@
+
+.link{
+    background-color: #fff;
+    margin:20rpx;
+    border-radius: 10rpx;
+    box-shadow: 0 1rpx 5rpx #eee;
+}
+.right{
+    display: flex;
+    flex-direction: row;
+}
+.left{
+    width: 60%;
+    padding: 20rpx;
+}
+.price{
+    margin-top:15rpx;
+}
+.goodslink{
+    padding:10rpx;
+}
+.goodslink image{
+  width: 260rpx;
+  height: 260rpx;
+  margin-right: 30rpx;
+}
+.link button{
+    padding-right: 0;
+    margin:0;
+}
+.like  image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+.like{
+    color: #000;
+    border: 1rpx solid #000;
+    width: 60%;
+    padding: 10rpx;
+    display: flex;
+    align-items: center;
+    margin-top: 20rpx;
+    margin-left: 150rpx;
+}

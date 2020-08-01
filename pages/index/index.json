@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+  },
+  "navigationBarBackgroundColor": "#ffc0cb",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "毕业惠 | Home",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}

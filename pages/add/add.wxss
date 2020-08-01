@@ -1,0 +1,27 @@
+
+.cate{
+  padding: 40rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+.cate_box {
+    height:160rpx;
+    width:160rpx;
+    line-height: 160rpx;
+    margin-right:86rpx;
+    font-size: 30rpx;
+    text-align: center;
+    background-color: #fff;
+    border: 2rpx solid #eee;
+    border-radius: 50%;
+    margin-bottom: 80rpx;
+    box-shadow: 0 1rpx 30rpx pink;
+}
+.cate_box:nth-child(3n+3){
+  margin-right:0;
+}
+.cate_box:active,.cate_box:hover{
+    color: #ffc0cb;
+}

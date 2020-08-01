@@ -1,0 +1,16 @@
+<view class="main">
+    <view class="myList">
+        <view class="good-box" wx:for="{{myList}}" wx:key="index" >
+            <navigator hover-class="naviHover" open-type="navigate"
+            url='../goodsDetail/goodsDetail?pid={{item.pid}}&p_cid={{item.p_cid}}&p_uid={{item.p_uid}}'>
+               <image src="{{item.pimag[0]}}" class="{{item.pimag[0].length?'gPic':'gPicNull'}}"></image>
+               <view class="desc">{{item.pdesc}}</view>
+            </navigator>
+            <view class="detail">
+                <view class="price" style="color: red;"><text style="font-size: 28rpx;">￥</text>{{item.price}}</view>
+                <image data-pid="{{item.pid}}" data-cid="{{item.p_cid}}" bindtap="delItem"
+                    style="width: 50rpx; height: 50rpx;" src="../../icons/del.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,49 @@
+/* 上传图片 */
+page{
+    
+  padding-top: 30rpx 20rpx;
+}
+.uploader{
+  padding-left: 10rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 16rpx;
+}
+.upload_box{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.uploader_item{
+  width: 200rpx;
+  height: 200rpx;
+  position: relative;
+  margin-left: 32rpx;
+}
+.uploader_item image{
+  width: 100%;
+  height:100%;
+}
+.uploader_item icon{
+  position: absolute;
+  bottom:0;
+  right:0;
+}
+.uploadBtn{
+  color: #ccc;
+   width: 200rpx;
+   height: 200rpx;
+   font-size: 180rpx;
+   font-weight: 200;
+   border:3rpx solid #ccc;
+   text-align: center;
+   line-height: 180rpx;
+}
+.btn{
+  padding-right: 20rpx;
+  padding-left: 430rpx;
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}

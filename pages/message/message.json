@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#ffc0cb",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "消息中心",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": false
+}

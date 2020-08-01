@@ -1,0 +1,28 @@
+<!-- <scroll-view scoll-y="{{true}}" class="goodsList">
+    <navigator class="good-box" wx:for="{{goodsList}}" wx:key="index"
+        hover-class="naviHover"  open-type="navigate"
+        url='../goodsDetail/goodsDetail?pid={{item.pid}}&p_cid={{item.p_cid}}&p_uid={{item.p_uid}}'>
+        <image lazy-load src="{{item.pimag[0]}}" mode="widthFix" class="{{item.pimag[0].length?'gPic':'gPicNull'}}"></image>
+        <view class="desc">
+            <text>{{item.pdesc}}</text>
+        </view>
+        <view class="detail">
+            <view class="price" style="color: red;"><text style="font-size: 28rpx;">￥</text>{{item.price}}</view>
+            <text style="color: #666; font-size: 26rpx;">1人想要</text>
+        </view>
+    </navigator>
+</scroll-view> -->
+<scroll-view  class="goodsList" scroll-y="true" style="height:{{scrollH}}px" bindscrolltolower="loadImages">
+    <view style="width:100%">
+      <view class="good-box">
+        <view wx:for="{{col1}}" wx:key="id">
+          <image src="{{item.pic}}" style="width:100%;height:{{item.height}}px"></image>
+        </view>
+      </view>
+      <view class="good-box">
+        <view wx:for="{{col2}}" wx:key="id">
+          <image src="{{item.pic}}" style="width:100%;height:{{item.height}}px"></image>
+        </view>
+      </view>
+    </view>
+  </scroll-view>

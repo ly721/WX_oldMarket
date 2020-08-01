@@ -1,0 +1,81 @@
+<scroll-view scroll-y="true" scroll-top="{{scrollTop}}" scroll-into-view='{{toView}}' style="height: {{scrollHeight}};">
+    <view id="page">
+        <!-- 消息盒子-->
+        <view class="msgBox" wx:for="{{allMessages}}" wx:key="index">
+            <!--与当前界面的人聊天的对方-->
+            <view class="msg" wx:if="{{item.fromUser.uid !== uid}}">
+                <image src="{{item.fromUser.uimag}}" class="uimg"></image>
+                <view class="picbox">
+                    <view class="textarea" style="width: auto; height: auto;" wx:if='{{item.message.isFile===2}}'
+                        bindtouchstart="mytouchstart" bindlongtap="delMessage"
+                        data-messageId="{{item.message.messageId}}"
+                        bindtouchend="mytouchend">{{item.message.content}} </view>
+                    <image wx:if='{{item.message.isFile===3}}' class="sendpic" bindtouchstart="mytouchstart"
+                        bindlongtap="delMessage" data-messageId="{{item.message.messageId}}" bindtouchend="mytouchend"
+                        src="{{item.message.content}}"></image>
+                    <view class="sendlink2" wx:if="{{item.message.isFile===1}}">
+                        <view class="good-box" data-pid="{{item.message.content.pid}}" hover-class="naviHover"
+                            open-type="navigate" bindtouchstart="mytouchstart" bindlongtap="delMessage"
+                            data-messageId="{{item.message.messageId}}" bindtouchend="mytouchend"  bindtap="toGoodsDetail" data-pid="{{item.message.content.pid}}"
+                            data-p_cid="{{item.message.content.p_cid}}" data-p_uid="{{item.message.content.p_uid}}">
+                            <image src="{{item.message.content.pimag[0]}}"
+                                class="{{item.message.content.pimag[0]?'gPic':'gPicNull'}}"></image>
+                            <view class="detail">
+                                <view class="price" style="color: red;">
+                                    <text style="font-size: 28rpx;">￥</text>{{item.message.content.price}}
+                                </view>
+                            </view>
+                            <view class="desc">{{item.message.content.pdesc}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="betweenTime">{{item.message.createTime}}</view>
+            </view>
+            <!--  当前界面的人 -->
+            <view class="msg2" wx:if="{{item.fromUser.uid === uid}}">
+                <image src="{{item.fromUser.uimag}}" class="uimg"></image>
+                <view class="textarea" wx:if='{{item.message.isFile===2}}' style="width: auto; height: auto;"
+                    bindtouchstart="mytouchstart" bindlongtap="delMessage" data-messageId="{{item.message.messageId}}"
+                    bindtouchend="mytouchend">{{item.message.content}} </view>
+                <image wx:if='{{item.message.isFile===3}}' class="sendpic" src="{{item.message.content}}"
+                    bindtouchstart="mytouchstart" bindlongtap="delMessage" data-messageId="{{item.message.messageId}}"
+                    bindtouchend="mytouchend"></image>
+                <view class="sendlink2" wx:if="{{item.message.isFile===1}}">
+                    <view class="good-box" data-pid="item.message.content.pid" hover-class="naviHover"  bindtouchstart="mytouchstart" bindlongtap="delMessage"  bindtap="toGoodsDetail"
+                        data-messageId="{{item.message.messageId}}" bindtouchend="mytouchend"  data-pid="{{item.message.content.pid}}"
+                        data-p_cid="{{item.message.content.p_cid}}" data-p_uid="{{item.message.content.p_uid}}">
+                        <image src="{{item.message.content.pimag[0]}}"
+                            class="{{item.message.content.pimag[0]?'gPic':'gPicNull'}}"></image>
+                        <view class="detail">
+                            <view class="price" style="color: red;">
+                                <text style="font-size: 28rpx;">￥</text>{{item.message.content.price}}
+                            </view>
+                        </view>
+                        <view class="desc">{{item.message.content.pdesc}}</view>
+                    </view>
+                </view>
+                <view class="betweenTime">{{item.message.createTime}}</view>
+            </view>
+        </view>
+
+        <!-- 商品链接 -->
+        <view wx:if="{{fromUrl===1}}" class="{{fromUrl===1?'link':'noLink'}}" data="{{prod}}">
+            <navigator wx:if="{{!isSendLink}}" class="goodslink" hover-class="naviHover" open-type="navigate"
+                url='../goodsDetail/goodsDetail?pid={{prod.pid}}&p_cid={{prod.p_cid}}&p_uid={{prod.p_uid}}'>
+                <image src="{{prod.pimag[0]}}" class="{{prod.pimag[0]?'gPic':'gPicNull'}}"></image>
+                <view class="left">
+                    <textarea style="width: 100%; height: 50rpx;">{{prod.pdesc}}</textarea>
+                    <text class="price"><text style="color: red; font-size: 24rpx;">￥</text>{{prod.price}}</text>
+                    <view class="bottonLeft">
+                        <view class="sendLink" data-pid="{{prod.pid}}" catchtap="sendGoodsLink">发送链接</view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</scroll-view>
+<view class="chat">
+    <input type="text" placeholder="与卖家说点什么呢~" value="{{message}}" bindinput='bindInputMsg' bindblur="onHideInput"
+        confirm-type="send" bindconfirm="sendMessage" />
+    <image bindtap="uplaodPictrue" class="{{isUpload?'active':''}}" src="../../icons/upload-act.png"></image>
+</view>

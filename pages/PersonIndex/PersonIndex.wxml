@@ -1,0 +1,57 @@
+<view class="mian">
+    <image class='background' src="{{user.uimag?user.uimag:'../../icons/bg.jpg'}}" mode="scaleToFill"></image>
+    <view class="bgc2"></view>
+    <view class='nav-capsule' bindtap="naviBack" wx:if='{{showBack}}'>
+        <image src="../../icons/back.png"></image>
+    </view>
+    <view class="top" data="{{user}}">
+        <view class="right">
+            <view class="avatar">
+                <image wx:if="{{user.uimag}}" src="{{user.uimag}}"></image>
+                <view>
+                    <text>{{user.uname}}</text>
+                    <view class="gender">
+                        <image src="{{user.gender===1?'../../icons/male.png':'../../icons/female.png'}}"></image>
+                    </view>
+                </view>
+            </view>
+            <textarea class="personDesc" style="width: 100%; height: auto;">这个人很懒什么都没有留下</textarea>
+        </view>
+    </view>
+    <view class="show">
+        <view class="show-item  {{currentIndex==index ? 'active' : ''}}" wx:for="{{navbar}}" wx:key="index" data-index="{{index}}" catchtap="switchNav">
+            <text class="show-text">{{item}}</text>
+            <text wx:if="{{index===0}}">{{goodsLen}}</text> 
+            <text wx:if="{{index===1}}">{{focusLen}}</text>
+        </view>
+    </view>
+    <scroll-view scroll-y="true" class="showGoods" wx:if="{{currentIndex===0}}">
+        <!-- 商品列表 -->
+        <view class="goodsList">
+            <navigator class="good-box" wx:for="{{showLists}}" wx:key="index" hover-class="naviHover"
+                open-type="navigate"
+                url='../goodsDetail/goodsDetail?pid={{item.pid}}&p_cid={{item.p_cid}}&p_uid={{item.p_uid}}'>
+                <image src="{{item.pimag[0]}}" class="{{item.pimag[0].length?'gPic':'gPicNull'}}"></image>
+                <view class="desc">{{item.pdesc}}</view>
+                <view class="detail">
+                    <view class="price" style="color: red;"><text style="font-size: 28rpx;">￥</text>{{item.price}}
+                    </view>
+                    <text style="color: #222; font-size: 26rpx;">1人想要</text>
+                </view>
+            </navigator>
+        </view>
+    </scroll-view>
+    <scroll-view scroll-y="true" class="focus" wx:if="{{currentIndex===1}}">
+        <!-- 获取关注用户的列表 -->
+        <view class="link" wx:for="{{focus}}" wx:key="index">
+            <navigator class="navigator" url="../PersonIndex/PersonIndex?personuid={{item.focus_uid}}&person=1">
+                <image wx:if='{{item.uimag[0]}}' src="{{item.uimag[0]}}"></image>
+                <view class="center">
+                    <view>{{item.uname}}</view>
+                    <view style="width: auto; height: auto;">个性签名：这个人没有留下什么</view>
+                </view>
+               </navigator>
+        </view>
+    </scroll-view>
+
+</view>

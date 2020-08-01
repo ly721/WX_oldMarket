@@ -1,0 +1,6 @@
+<view class="cate">
+   <view class="cate_box" bindtap="addCate"  data-cid="{{item.cid}}" wx:for="{{cates}}" wx:key="index">
+       <text>{{item.cname}}</text>
+    </view>
+</view>
+

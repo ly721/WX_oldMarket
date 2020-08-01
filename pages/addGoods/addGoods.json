@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#ffc0cb",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "发布商品",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}

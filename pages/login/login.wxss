@@ -1,0 +1,17 @@
+
+.header{
+    margin-top: 120rpx;
+    text-align: center;
+}
+.header image{
+    width: 300rpx;
+    height: 300rpx;
+    border-radius: 50%;
+    box-shadow: 0 2rpx 20rpx pink;
+}
+.content{
+    padding:30rpx 0;
+    line-height: 60rpx;
+    font-size: 40rpx;
+    text-align: center;
+}

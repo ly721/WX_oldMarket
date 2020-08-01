@@ -1,0 +1,122 @@
+<view class="main">
+    <!-- 轮播图 -->
+    <view class="slides">
+        <swiper autoplay circular indicator-dots indicator-color="#eee" indicator-active-color="pink">
+            <swiper-item wx:for="{{goodsDetail.pimag}}" wx:key="index">
+                <image src="{{item}}" mode="aspectFill" wx:if="{{item.length>0}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <!-- 文字描述 -->
+    <view class="textDetail">
+        <view class="price" style="color: red;"><text style="font-size: 28rpx;">￥</text>{{goodsDetail.price}}</view>
+        <text>{{goodsDetail.pdesc}}</text>
+    </view>
+    <!-- 发布商品的人 -->
+    <view class="user" data="{{user}}">
+        <view catchtap="toPerson" data-p_uid='{{user.uid}}' data-pid='{{goodsDetail.pid}}'
+            data-p_cid='{{goodsDetail.p_cid}}' data-person="0"> 
+            <h3>{{user.uname}}</h3>
+            <view class="Pdesc">个人描述，这个人什么也没留下</view>
+            <view catchtap="myFocus" wx:if='{{user.uid!==uid}}' class="addFocus {{isFocus===1 ? '' : 'active'}}">
+                {{isFocus===1 ? '关注+' : '已关注'}}
+            </view>
+        </view>
+        <image src="{{user.uimag}}"></image>
+    </view>
+    <!-- 评论区 -->
+    <scroll-view class="comments" scroll-y="true">
+        <view class="allremain">全部留言</view>
+        <view class="input">
+            <image src="../../icons/avatar.jpg"></image>
+            <input type="text" confirm-type="send" placeholder="写下你想问的哦~" value="{{commentInput}}"
+                bindconfirm="commentTo" bindinput='bindinput'/>
+        </view>
+        <view class="comment">
+            <view class="context-box" wx:for="{{mainComments}}" wx:key="index" data-status='1'
+                data-firstCommentUid="{{item.comment.fromId}}" data-infoId="{{item.comment.infoId}}"
+                data-content="{{item.comment.content}}" data-name="{{item.comment.fromName}}"
+                data-comment_pid="{{item.comment.comment_pid}}" catchlongtap="showDaialog"  bindtouchstart="mytouchstart" bindtouchend="mytouchend">
+                <view class="commentRight">
+                    <image src="{{item.comment.fromImag}}"></image>
+                </view>
+                <view class="commentLeft">
+                    <view class="context">
+                        <text class="name" style="color:#FFA500;">{{item.comment.fromName}}</text>
+                        <view style="width: 100%; height: auto;"
+                            class="commentText">{{item.comment.content}}</view>
+                        <view class="children" catchtap='getsecondComments'
+                            data-firstCommentUid="{{item.comment.fromId}}"
+                            data-firstCommentPid="{{item.comment.infoId}}" data-parentId="{{item.comment.ownerId}}">
+                            共{{item.count}}条回复></view>
+                        <!-- 二级评论 -->
+                        <view class="secondMain" wx:if="{{isShowSecond && comment_id==item.comment.infoId}}">
+                            <view class="showSecondCom" wx:for="{{secondComments}}" wx:key="index" data-status='2'
+                                data-comment_id="{{item.comment_id}}" data-toId="{{item.toId}}"
+                                data-content="{{item.replyComm}}" data-replyId="{{item.replyId}}"
+                                data-comment_pid="{{item.infoId}}" data-name="{{item.fromName}}" 
+                                data-fromId="{{item.fromId}}" data-parentId="{{item.parentId}}"
+                                 bindtouchstart="mytouchstart" catchlongtap="showDaialog" bindtouchend="mytouchend">
+                                <image src="{{item.fromImag}}" class="ava"></image>
+                                <view class="contextSec">
+                                    <view class="nameSec">
+                                        <text style="color:#FFA500;">{{item.fromName}}</text>
+                                        <image src="../../icons/dz.png"></image>
+                                    </view>
+                                    <text class="createTime"
+                                        style="color: #666; font-size: 26rpx;">{{item.createDate}}</text>
+                                    <view style="width: 100%; height: auto;"
+                                        class="commentText">{{item.replyComm}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="tools">
+                        <text class="createTime"
+                            style="color: #666; font-size: 26rpx;">{{item.comment.createTime}}</text>
+                        <view>
+                            <image catchtap="showInput" data-comment_id="{{item.comment.infoId}}"
+                                data-parentId="{{item.comment.fromId}}" 
+                                data-firstCommentName="{{item.comment.fromName}}" bindfocus="cleartoName"
+                                src="../../icons/comment.png"></image>
+                            <image src="{{dianz?'../../icons/dz2.png':'../../icons/dz.png'}}"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <!-- 点击一级评论按钮显示键盘以及长按回复 -->
+    <view class="input-section" wx:if="{{showInput}}">
+        <input class='input_input' adjust-position="false" value="{{inputMessage}}" placeholder="回复@{{toName}}" bindinput='bindInputMsg'
+            bindblur="onHideInput" confirm-type="send" cursor-space="150" bindconfirm="commentToSecond" focus="true" />
+        <view style="height:110rpx;width:170rpx;display:flex; align-items: center;justify-content: center;">
+        </view>
+    </view>
+    <!-- 点赞收藏区域 -->
+    <view class="likebox">
+        <view class="verText" catchtap="mydz">
+            <view class="like">
+                <image src="{{dianz?'../../icons/dz2.png':'../../icons/dz.png'}}"></image>
+                <text class="">超赞</text>
+            </view>
+            <view catchtap="myLike" class="like">
+                <image src="{{isLike===2 ? '../../icons/sc2.png' : '../../icons/sc.png'}}"></image>
+                <text class="">收藏</text>
+            </view>
+        </view>
+        <view wx:if='{{user.uid!==uid}}' class="want" catchtap = "Iwant">我想要</view>
+        <view catchtap="toMine" wx:if='{{user.uid===uid}}' class="person" >个人中心</view>
+    </view>
+    <!-- 长按与点击评论触发回复，删除  -->
+    <view class="dialog" wx:if="{{showDaialog}}" animation="{{animationData}}">
+        <view class="modelTop" catchtap="hideDialog"></view>
+        <view class="modelBd">
+            <view class="replayCtx">{{name}}：{{content}}</view>
+            <text catchtap="replayCom" data-firstCommentName="{{item.comment.fromName}}"
+                bindfocus="cleartoName">回复</text>
+            <text class="" catchtap="delComment">删除</text>
+            <text class="cancel_btn" catchtap="hideDialog">取消</text>
+        </view>
+    </view>
+</view>

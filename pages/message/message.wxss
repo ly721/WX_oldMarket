@@ -1,0 +1,75 @@
+page{
+    padding: 0;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color:pink;
+}
+.navbar view{
+    width:50%; 
+    /* padding-top: 20rpx; */
+    text-align: center;
+    height: 60rpx;
+}
+.navbar .navbar-text{
+    display: block;
+    width:100%;
+    height: 100%;
+    line-height: 60rpx;
+}
+.navbar .navbar-text.active {
+    color: #fff;
+}
+.chat,.notice{
+    width: 100%;
+    padding:0 10rpx 10rpx;
+}
+.chat_box,.notice_box{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding-top: 15rpx;
+
+}
+.chat_box image,.notice_box image{
+    width: 60rpx;
+    height: 60rpx;
+}
+.chat_box2{
+    padding: 20rpx 10rpx;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #fff;
+}
+.chat_box2 image{
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 20rpx;
+}
+.left{
+    width: 80%;
+    padding-bottom: 16rpx;
+}
+.left .top{
+    justify-content: space-between;
+    display: flex; 
+    margin-bottom: 10rpx;
+}
+.top .nickName{
+    font-size: 37rpx;
+}
+.top .time{
+    font-size: 24rpx;
+    color: #515151;
+    margin-top: 8rpx;
+}
+ .lastMessage{
+    font-size: 28rpx;
+    color: #515151;
+    
+}
+.msgHover{
+    background-color: #eee;
+}

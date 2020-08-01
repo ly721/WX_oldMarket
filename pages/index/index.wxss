@@ -1,0 +1,133 @@
+
+page{
+  color:#000;
+  font-size:32rpx;
+  padding:10rpx 20rpx;
+  font-family: sans-serif;
+}
+/*下拉框*/
+.search{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  padding:5rpx;
+}
+.search label{
+  position: relative;
+  flex:7;
+  background-color: #fff;
+border-radius: 15rpx;
+
+}
+.search label .searchBtn{
+  position: absolute;
+  left: 2%;
+  top: 20%;
+}
+.search .select_box{
+  flex:3;
+}
+.search input{
+ 
+  border-radius:15rpx;
+  padding:5rpx 10rpx;
+  padding-left: 60rpx;
+  height:80rpx;
+}
+.select-current {
+  position: relative;
+  width: 100%;
+  padding: 0 10rpx;
+  line-height: 70rpx;
+  box-sizing: border-box;
+}
+
+.select-current::after {
+  position: absolute;
+  display: block;
+  right: 16rpx;
+  top: 30rpx;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10rpx solid transparent;
+  border-top: 10rpx solid #999;
+}
+
+.current-name {
+  display: block;
+  width: 85%;
+  height: 100%;
+  word-wrap: normal;
+  overflow: hidden;
+}
+
+.option-list {
+  position: absolute;
+  left: 0;
+  top: 76rpx;
+  width: 30%;
+  padding: 12rpx 20rpx 10rpx 20rpx;
+  box-sizing: border-box;
+  z-index: 99;
+  background-color: #fff;
+}
+
+.option {
+  display: block;
+  width: 100%;
+  line-height: 70rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.option:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.img_box{
+  padding:15rpx 5rpx;
+}
+.img_box image{
+  height:300rpx;
+  width:100%;
+  border-radius:20rpx;
+}
+/*商品列表*/
+.goodsList{
+  column-count:2;
+  column-gap:20rpx; 
+}
+.goodsList .good-box{
+  background-color:#fff;
+  border-radius: 20rpx;
+  break-inside: avoid;
+  margin-bottom: 20rpx;
+}
+.goodsList .good-box .gPic{
+  border-radius: 20rpx 20rpx 0 0;
+ width: 100%;
+ display: block;
+ max-height: 370rpx;
+}
+.gPicNull{
+ height: 0;
+ width: 0;
+ display: none;
+} 
+.desc{
+  padding: 10rpx 20rpx;
+  font-weight: 500;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: rap;
+}
+.goodsList .good-box .detail{  
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+padding: 0 20rpx 10rpx;
+
+}
+.price{
+ font-size: 34rpx;
+}

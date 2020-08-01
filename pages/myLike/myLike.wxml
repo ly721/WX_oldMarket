@@ -1,0 +1,19 @@
+<view class="main">
+    <view class="link" wx:for="{{likes}}" wx:key="index">
+        <view class="goodslink">
+            <view class="right">
+                <image wx:if="{{item.pimag[0]}}" src="{{item.pimag[0]}}"></image>
+                <view class="left">
+                    <textarea wx:if="{{item.pdesc}}" style="width: 100%; height: 50rpx;">{{item.pdesc}}</textarea>
+                    <text class="price" style="color: red;"><text
+                            style=" font-size: 24rpx;">￥</text>{{item.price}}</text>
+                            <view catchtap="myLike" data-pid="{{item.s_pid}}" data-index="{{index}}" data-isLike="{{item.isLike}}"
+                    class="like">
+                   <image src="{{item.isLike===2 ? '../../icons/sc2.png' : '../../icons/sc.png'}}"></image>
+                <text>{{item.isLike===2?'取消收藏':'收藏'}}</text>
+                </view>
+            </view>
+            </view>
+        </view>
+    </view>
+</view>

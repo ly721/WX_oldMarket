@@ -1,0 +1,14 @@
+
+<view class="main">
+    <!-- 获取关注用户的列表 -->
+    <view class="link" wx:for="{{focus}}" wx:key="index">
+        <view class="navigator" catchtap="toPerson" data-beFocus_uid="{{item.beFocus_uid}} data-person=1">
+            <image wx:if='{{item.uimag[0]}}' src="{{item.uimag[0]}}"></image>
+            <view class="center">
+                <view>{{item.uname}}</view>
+                <view style="width: auto; height: auto; font-weight: 400;">个性签名：这个人没有留下什么</view>
+            </view>
+            <view bindtap="myFocus" data-index="{{index}}" data-beFocus_uid="{{item.beFocus_uid}}" data-focus_uid="{{item.focus_uid}}" data-isFocus="{{item.isFocus}}" class="addFocus {{item.isFocus===1 ? '' : 'active'}}">{{item.isFocus===1 ? '关注+' : '已关注'}}</view>
+        </view>
+    </view>
+</view>

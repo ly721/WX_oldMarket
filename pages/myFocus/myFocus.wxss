@@ -1,0 +1,58 @@
+.main{
+    padding:20rpx;
+    font-size: 32rpx;
+}
+.link .navigator{
+    margin-bottom: 20rpx;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding:20rpx;
+    border-radius: 20rpx;
+}
+.navigator image{
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 20rpx;
+}
+.center {
+    color:skyblue;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20rpx;
+    margin-left: 10rpx;
+}
+.center view{
+    color: #000;
+    font-size: 34rpx;
+    font-weight: 600;
+}
+.center textarea{
+    color: #515151;
+    font-size: 32rpx;
+    margin-top: 20rpx;
+}
+.link{
+    position: relative;
+}
+.link text{
+    font-size: 34rpx;
+    position: absolute;
+    left:220rpx;
+    bottom: 30rpx;
+}
+.addFocus{
+    margin-top: 30rpx;
+    height:70rpx;
+    border-radius: 10rpx;
+    width: 150rpx;
+    line-height: 70rpx;
+    background-color: yellow;
+    color: rgb(22, 22, 22);
+    text-align: center;
+}
+.addFocus.active{
+    background-color: #fff;
+   color: rgba(0,0,0,.4);
+    border: 1rpx solid rgba(0,0,0,.1);
+}

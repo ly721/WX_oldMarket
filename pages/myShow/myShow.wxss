@@ -1,0 +1,45 @@
+.main{
+  padding: 20rpx 10rpx;
+}
+  .myList .good-box .detail{
+    height:12%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:20rpx;
+  }
+  .myList{
+    column-count:2;
+    column-gap:30rpx; 
+ }
+ .myList .good-box{
+    background-color:#fff;
+    border: 1rpx solid #eee;
+    border-radius: 30rpx;
+    box-shadow: 0 1rpx 10rpx pink;
+    break-inside:avoid;
+    margin-bottom: 20rpx;
+    padding: 20rpx;
+ }
+  .myList .good-box .gPic{
+   border-radius: 30rpx;
+   width: 250rpx;
+   height: 250rpx;
+   display: block;
+   margin: 10rpx 45rpx;
+ }
+ .gPicNull{
+   height: 0;
+   width: 0;
+   display: none;
+ } 
+ .myList .good-box .detail{  
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-top: 10rpx;
+   padding: 0 10rpx;
+ }
+ .price{
+   font-size: 34rpx;
+ }  

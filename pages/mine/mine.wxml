@@ -1,0 +1,21 @@
+<view class="main">
+    <!-- 头像昵称 -->
+    <view class="mine">
+        <view class="avatar">
+            <view class="avtImg" catchtap="editAvatar">
+                <image  src="{{avatarUrl.length===0 ? defaultImg : avatarUrl}}"></image>
+            </view>
+            <text>{{nickName ? nickName : '暂无昵称'}}</text>
+        </view>
+    </view>
+    <view class="tools">
+        <view class="setting"  wx:for="{{mineSetting}}" wx:key="index" >
+            <view catchtap="ifLogin" data-index="{{index}}">{{item}}</view>
+        </view>
+        <view class="btn">
+            <button type="warn" catchtap="Logout">退出登录</button>
+            <button type="default" catchtap="Login">立即登录</button>
+        </view>
+   </view>
+</view>
+

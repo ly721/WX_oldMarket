@@ -1,0 +1,38 @@
+<view class="main">
+    <!-- 搜索部分 -->
+    <view class="search" bindtap="close">
+        <view class='select_box'>
+            <view class="select-current" catchtap="openClose">
+                <text class="current-name" model:value="{{cates}}">{{cid>0 ? cates[cid-1].cname : '选择分类'}}</text>
+            </view>
+            <view class="option-list" wx:if="{{isShow}}" catchtap="optionTap">
+                <text class="option" wx:for="{{cates}}" data-cid="{{item.cid}}" wx:key="index">{{item.cname}}</text>
+            </view>
+        </view>
+        <!-- 搜索框 -->
+        <label for="search">
+            <icon type="search" class="searchBtn"></icon>
+                <input type="text" confirm-type="send"placeholder="请输入搜索内容" value="{{serachKey}}"
+                bindconfirm="search" placeholder-style="border" id="search" bindinput='bindinput' />
+        </label>
+    </view>
+    <!-- 图片区域 -->
+    <view class="img_box">
+        <image mode="aspectFill" src="http://i0.sinaimg.cn/edu/2015/0426/U11027P42DT20150426101337.jpg"></image>
+    </view>
+    <!-- 商品列表 -->
+    <scroll-view scoll-y="{{true}}" class="goodsList">
+        <navigator class="good-box" wx:for="{{goodsList}}" wx:key="index"
+            hover-class="naviHover"  open-type="navigate"
+            url='../goodsDetail/goodsDetail?pid={{item.pid}}&p_cid={{item.p_cid}}&p_uid={{item.p_uid}}'>
+            <image src="{{item.pimag[0]}}" mode="widthFix" class="{{item.pimag[0].length?'gPic':'gPicNull'}}"></image>
+            <view class="desc">
+                <text>{{item.pdesc}}</text>
+            </view>
+            <view class="detail">
+                <view class="price" style="color: red;"><text style="font-size: 28rpx;">￥</text>{{item.price}}</view>
+                <text style="color: #666; font-size: 26rpx;">1人想要</text>
+            </view>
+        </navigator>
+    </scroll-view>
+</view>

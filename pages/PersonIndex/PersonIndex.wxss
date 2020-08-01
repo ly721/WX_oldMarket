@@ -1,0 +1,174 @@
+
+page{
+    height:100%;
+    padding: 0;
+}
+.bgc2{
+    position:fixed; 
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.8);
+}
+.background {
+    position:fixed; 
+    z-index: -3;
+    width: 300%;
+}
+.nav-capsule image{
+    height: 40rpx;
+    width: 40rpx;
+    margin-top: 65rpx;
+    margin-left: 16rpx;
+}
+.top{
+    padding:20rpx 30rpx;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    padding-top: 20rpx;
+}
+.avatar image{
+    width: 160rpx;
+    height: 160rpx;
+    margin-right: 30rpx;
+}
+.avatar {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20rpx;
+}
+.avatar .gender image{
+    width: 50rpx;
+    height: 50rpx;
+    margin-top: 20rpx;
+}
+
+.addFocus{
+    margin:10rpx 0;
+    height:70rpx;
+    border-radius: 20rpx;
+    width: 140rpx;
+    text-align: center;
+    line-height: 70rpx;
+    background-color: yellow;
+    color: rgb(22, 22, 22);
+}
+.addFocus.active{
+    background-color: rgba(0,0,0,.4);
+    color: #eee;
+}
+.show{
+    margin-top: 30rpx;
+    padding: 10rpx 40rpx 0 100rpx;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border-bottom: 1rpx solid #eee;
+}
+.show .show-item{
+    width:50%; 
+    padding: 20rpx 20rpx 0 100rpx;
+    text-align: center;
+    height: 80rpx;  
+    display: flex;
+    flex-direction: row;
+}
+.show .show-item.active {
+    color: pink;
+}
+.show-text{
+    margin-right: 10rpx;
+}
+.showGoods{
+    width: 100%;
+    min-height: 1200rpx;
+    justify-content: center;
+    display: flex;
+    background-color: #eee;
+    padding: 20rpx;
+}
+.showGoods image{
+    width: 60rpx;
+    height: 60rpx;
+}
+/*商品列表*/
+.goodsList{
+    column-count:2;
+    column-gap:30rpx; 
+ }
+ .goodsList .good-box{
+    background-color:#fff;
+    border: 1rpx solid #eee;
+    border-radius: 30rpx;
+    break-inside:avoid;
+    margin-bottom: 20rpx;
+    padding: 20rpx;
+ }
+  .goodsList .good-box .gPic{
+   border-radius: 30rpx;
+   width: 250rpx;
+   height: 250rpx;
+   display: block;
+   margin: 10rpx 25rpx;
+ }
+ .gPicNull{
+   height: 0;
+   width: 0;
+   display: none;
+ } 
+ .goodsList .good-box .detail{  
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-top: 10rpx;
+   padding: 0 10rpx;
+ }
+ .price{
+   font-size: 34rpx;
+ }  
+ 
+.link{
+    position: relative;
+}
+.focus{
+    padding: 20rpx;
+    display: flex;
+    flex-direction: row;
+    min-height: 1200rpx;
+    background-color: #fff;
+}
+.link text{
+    font-size: 34rpx;
+    position: absolute;
+    left:220rpx;
+    bottom: 30rpx;
+}
+.addFocus{
+    margin-top: 30rpx;
+    height:70rpx;
+    border-radius: 10rpx;
+    width: 150rpx;
+    line-height: 70rpx;
+    background-color: yellow;
+    color: rgb(22, 22, 22);
+    text-align: center;
+}
+.addFocus.active{
+    background-color: #fff;
+    color: rgba(0,0,0,.4);
+    border: 1rpx solid rgba(0,0,0,.1);
+}
+.navigator{
+    display: flex;
+}
+.navigator image{
+    width: 160rpx;
+    height: 160rpx;
+    margin-right: 20rpx;
+}
+.navigator .center textarea{
+    margin-top: 20rpx;
+}
